@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FD475FF62F86B9AF00DC2595 /* readme.md in Resources */ = {isa = PBXBuildFile; fileRef = FD475FF52F86B9AF00DC2595 /* readme.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FD475FBC2F85341400DC2595 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -19,6 +23,7 @@
 /* Begin PBXFileReference section */
 		FD475F402F850D5400DC2595 /* ScoreKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScoreKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD475FB82F85341400DC2595 /* ScoreKeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoreKeeperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD475FF52F86B9AF00DC2595 /* readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -55,6 +60,7 @@
 		FD475F372F850D5400DC2595 = {
 			isa = PBXGroup;
 			children = (
+				FD475FF52F86B9AF00DC2595 /* readme.md */,
 				FD475F422F850D5400DC2595 /* ScoreKeeper */,
 				FD475FB92F85341400DC2595 /* ScoreKeeperTests */,
 				FD475F412F850D5400DC2595 /* Products */,
@@ -162,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD475FF62F86B9AF00DC2595 /* readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
