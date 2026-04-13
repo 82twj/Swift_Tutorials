@@ -16,10 +16,10 @@ Apple's official tutorials designed for anyone new to building apps for Apple pl
 | Chapter | Topic | Tutorial | Code |
 |---------|-------|----------|------|
 | 1 | Hello, SwiftUI | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/hello-swiftui) | |
-| 2 | Views, Structures & Properties | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/customize-views-with-properties) | |
-| 3 | Layout & Style | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/design-an-interface) | |
-| 4 | Buttons & State | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/update-the-ui-with-state) | |
-| 5 | Lists & Text Fields | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/create-dynamic-content) | |
+| 2 | Views, Structures & Properties | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/customize-views-with-properties) | [WeatherForecast](https://github.com/82twj/Swift_Tutorials/tree/9320a0e9d2c3c623d668bf0daa2d1db43fb3dc66/SwiftUI/WeatherForecast) |
+| 3 | Layout & Style | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/design-an-interface) | [OnboardingFlow](https://github.com/82twj/Swift_Tutorials/tree/9320a0e9d2c3c623d668bf0daa2d1db43fb3dc66/SwiftUI/OnboardingFlow) |
+| 4 | Buttons & State | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/update-the-ui-with-state) | [DiceRoller](https://github.com/82twj/Swift_Tutorials/tree/9320a0e9d2c3c623d668bf0daa2d1db43fb3dc66/SwiftUI/DiceRoller) |
+| 5 | Lists & Text Fields | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/create-dynamic-content) | [Pick-a-Pal](https://github.com/82twj/Swift_Tutorials/tree/9320a0e9d2c3c623d668bf0daa2d1db43fb3dc66/SwiftUI/Pick-a-Pal) |
 
 ### Data Modeling
 | Chapter | Topic | Tutorial | Code |
