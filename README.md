@@ -24,9 +24,9 @@ Apple's official tutorials designed for anyone new to building apps for Apple pl
 ### Data Modeling
 | Chapter | Topic | Tutorial | Code |
 |---------|-------|----------|------|
-| 6 | Custom types and Swift Testing | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/welcome-to-data-modeling) | [ScoreKeeper](tutorial/06.%20ScoreKeeper/README.md) |
-| 7 | Models and persistence | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/save-data) | [Birthdays](tutorial/07.%20Birthdays/README.md) |
-| 8 | Navigation, editing, and relationships | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/navigate-sample-data) | [FriendsFavoriteMovies](tutorial/08.%20FriendsFavoriteMovies/README.md) |
+| 6 | Custom types and Swift Testing | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/welcome-to-data-modeling) | [ScoreKeeper](https://github.com/82twj/Swift_Tutorials/tree/3519d3971b980ca6e99f4fd9fa211408ca38b7f4/DataModeling/ScoreKeeper) |
+| 7 | Models and persistence | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/save-data) | [Birthdays](https://github.com/82twj/Swift_Tutorials/tree/3519d3971b980ca6e99f4fd9fa211408ca38b7f4/DataModeling/Birthdays) |
+| 8 | Navigation, editing, and relationships | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/navigate-sample-data) | [FriendsFavoriteMovies](https://github.com/82twj/Swift_Tutorials/tree/3519d3971b980ca6e99f4fd9fa211408ca38b7f4/DataModeling/FriendsFavoriteMovies) |
 | 9 | Observation and shareable data models | [Apple Docs](https://developer.apple.com/tutorials/develop-in-swift/complete-a-game-with-logic) | |
 
 ### App Development
