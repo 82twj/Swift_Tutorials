@@ -184,4 +184,4 @@ UI 테스트보다 먼저 모델 로직을 테스트한 점이 중요합니다.
 
 | | | |
 |---|---|---|
-| ![](ScoreKeepr1.png) | ![](ScoreKeepr2.png) | ![](ScoreKeepr3.png) |
+| ![](ScreenShot/ScoreKeeper1.png) | ![](ScreenShot/ScoreKeeper2.png) | ![](ScreenShot/ScoreKeeper3.png) |
