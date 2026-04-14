@@ -147,4 +147,4 @@ SwiftUI에서는 이런 작은 입력 상태도 명확하게 선언하는 습관
 
 | | | |
 |---|---|---|
-| ![](ScreenShot/Birthdays1) | ![](ScreenShot/Birthdays2) | ![](ScreenShot/Birthdays3) |
+| ![](ScreenShot/Birthdays1.png) | ![](ScreenShot/Birthdays2.png) | ![](ScreenShot/Birthdays3.png) |
