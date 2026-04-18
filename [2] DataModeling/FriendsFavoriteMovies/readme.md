@@ -1,12 +1,12 @@
 <h1>FriendsFavoriteMovies</h1>
 
-친구 목록과 영화 목록을 각각 관리하는 작은 앱을 만들면서 `SwiftData`의 모델 정의 방식과 `SwiftUI`에서 데이터 조회, 추가, 수정, 삭제 흐름을 연습한 프로젝트입니다. `TabView`로 두 영역을 나누고, 각 탭에서 리스트와 상세 화면을 연결해 간단한 데이터 관리 앱 구조를 익힐 수 있습니다.<br>
+친구 목록과 영화 목록을 각각 관리하는 작은 앱을 만들면서 `SwiftData`의 모델 정의 방식과 `SwiftUI`에서 데이터 조회, 추가, 수정, 삭제 흐름을 연습한 프로젝트입니다. 최근 업데이트에서는 친구가 좋아하는 영화를 연결하는 관계 모델링과 영화 검색 기능까지 추가되어, 단순 CRUD를 넘어 데이터 간 연결과 필터링 흐름도 함께 익힐 수 있습니다.<br>
 
 <h2>프로젝트를 통해 배운 핵심 내용</h2>
 
 | 항목 | 내용 |
 |---|---|
-| `@Model`로 데이터를 영속 모델로 선언하는 방법 | 이 프로젝트의 핵심 데이터는 `Friend`와 `Movie` 두 모델입니다. 각각 `@Model`로 선언되어 있어 `SwiftData`가 저장 가능한 객체로 인식합니다. |
+| `@Model`로 데이터를 영속 모델로 선언하는 방법 | 이 프로젝트의 핵심 데이터는 `Friend`와 `Movie` 두 모델입니다. 각각 `@Model`로 선언되어 있어 `SwiftData`가 저장 가능한 객체로 인식합니다. 최근에는 친구가 좋아하는 영화를 연결하기 위해 모델 속성도 확장되었습니다. |
   
 이 구조를 통해 배운 점은:  
   
@@ -16,10 +16,27 @@
   
 예를 들어 이 프로젝트에서는:  
   
-- `Friend`는 `name`만 가지는 간단한 모델  
-- `Movie`는 `title`과 `releaseDate`를 가지는 모델  
+- `Friend`는 `name`과 `favoriteMovie`를 가짐  
+- `Movie`는 `title`, `releaseDate`, `favoritedBy`를 가짐  
   
 처럼 역할에 따라 데이터를 분리해 관리하고 있습니다.
+
+| 항목 | 내용 |
+|---|---|
+| 모델 간 관계를 양방향으로 연결하는 데이터 모델링 | 이번 업데이트에서는 `Friend.favoriteMovie`와 `Movie.favoritedBy`가 추가되면서 친구와 영화가 서로 연결되는 관계가 생겼습니다. |
+  
+이 구조를 통해 배운 점은:  
+  
+- 하나의 데이터가 다른 모델을 참조하도록 설계할 수 있음  
+- 관계를 통해 "누가 어떤 영화를 좋아하는가"를 자연스럽게 표현할 수 있음  
+- 상세 화면에서 단순 속성 편집을 넘어서 연결된 데이터까지 보여줄 수 있음  
+  
+예를 들어 이 프로젝트에서는:  
+  
+- 친구 상세 화면에서 좋아하는 영화를 선택 가능  
+- 영화 상세 화면에서 그 영화를 좋아하는 친구 목록 확인 가능  
+  
+하도록 구성되어 있습니다.
 
 | 항목 | 내용 |
 |---|---|
@@ -75,10 +92,24 @@
 이 프로젝트에서는:  
   
 - 친구 이름은 `TextField`로 수정  
+- 좋아하는 영화는 `Picker`로 선택  
 - 영화 제목은 `TextField`로 수정  
 - 개봉일은 `DatePicker`로 수정  
   
 하는 식으로 폼 기반 편집을 구성하고 있습니다.
+
+| 항목 | 내용 |
+|---|---|
+| `#Predicate`와 검색 상태로 목록을 필터링하는 방법 | 영화 탭은 이제 `FilteredMovieList`를 통해 검색어 상태를 관리하고, `MovieList(titleFilter:)`에서 `#Predicate<Movie>`를 사용해 제목 기준 필터링을 수행합니다. |
+  
+이 부분에서 배운 점은:  
+  
+- 검색어 같은 UI 상태를 상위 뷰에서 관리할 수 있음  
+- `SwiftData Query`를 초기화할 때 조건식을 함께 주입할 수 있음  
+- 저장된 데이터를 그대로 두면서 화면에 보이는 결과만 동적으로 좁힐 수 있음  
+  
+이 프로젝트에서는 `localizedStandardContains`를 사용해  
+사용자가 입력한 텍스트가 영화 제목에 포함되는지 비교하고 있습니다.
 
 | 항목 | 내용 |
 |---|---|
@@ -116,9 +147,22 @@
 즉 이 프로젝트는:  
   
 - 사람 데이터 관리 영역  
-- 영화 데이터 관리 영역  
+- 검색 가능한 영화 데이터 관리 영역  
   
 을 탭 단위로 나누어 작은 CRUD 예제를 두 개 합친 형태로 볼 수 있습니다.
+
+| 항목 | 내용 |
+|---|---|
+| 빈 데이터 상태를 별도 UI로 처리하는 방법 | `FriendList`와 `MovieList`는 데이터가 없을 때 단순 빈 리스트 대신 `ContentUnavailableView`를 보여줍니다. |
+  
+이를 통해 배운 점은:  
+  
+- 비어 있는 상태도 하나의 화면 상태로 명확히 설계할 수 있음  
+- 사용자가 다음에 무엇을 해야 하는지 더 직관적으로 안내 가능  
+- 리스트가 비어 있을 때의 사용자 경험을 더 깔끔하게 만들 수 있음  
+  
+또한 Preview에서도 빈 목록 상태를 따로 만들어  
+데이터가 없는 경우의 화면까지 미리 확인할 수 있도록 구성했습니다.
 
 | 항목 | 내용 |
 |---|---|
@@ -137,39 +181,45 @@
 | 파일 | 역할 |
 |---|---|
 | `FriendsFavoriteMoviesApp.swift` | 앱 시작 지점과 `modelContainer` 설정 |
-| `ContentView.swift` | `TabView`로 친구/영화 탭 구성 |
-| `Friend.swift` | 친구 데이터 모델 정의 |
-| `Movie.swift` | 영화 데이터 모델 정의 |
+| `ContentView.swift` | `TabView`로 친구 탭과 검색 가능한 영화 탭 구성 |
+| `Friend.swift` | 친구 데이터 모델과 좋아하는 영화 관계 정의 |
+| `Movie.swift` | 영화 데이터 모델과 영화를 좋아하는 친구 관계 정의 |
 | `FriendList.swift` | 친구 목록 조회, 추가, 삭제 화면 |
-| `MovieList.swift` | 영화 목록 조회, 추가, 삭제 화면 |
-| `FriendDetail.swift` | 친구 이름 편집 화면 |
-| `MovieDetail.swift` | 영화 제목과 개봉일 편집 화면 |
-| `SampleData.swift` | Preview용 메모리 기반 샘플 데이터 구성 |
+| `MovieList.swift` | 영화 목록 조회, 검색 결과 표시, 추가, 삭제 화면 |
+| `FilteredMovieList.swift` | 영화 검색어 상태를 관리하는 래퍼 화면 |
+| `FriendDetail.swift` | 친구 이름과 좋아하는 영화 편집 화면 |
+| `MovieDetail.swift` | 영화 제목, 개봉일, 좋아요를 누른 친구 목록 표시 화면 |
+| `SampleData.swift` | Preview용 메모리 기반 샘플 데이터와 관계 데이터 구성 |
 
 <h2>이 프로젝트에서 특히 중요했던 포인트</h2>
 
-이번 프로젝트의 핵심은 단순히 친구와 영화를 나열하는 것이 아니라, `SwiftData` 모델을 정의하고, `@Query`로 조회하고, `@Bindable`로 수정하고, `ModelContext`로 생성/삭제하는 전체 흐름을 작은 예제로 직접 익힌 데 있습니다.  
+이번 프로젝트의 핵심은 단순히 친구와 영화를 나열하는 것이 아니라, `SwiftData` 모델을 정의하고, `@Query`로 조회하고, `@Bindable`로 수정하고, `ModelContext`로 생성/삭제하는 흐름 위에 모델 간 관계와 검색 기능까지 얹어보며 데이터 중심 앱 구조를 더 확장해본 데 있습니다.  
   
 정리하면 다음 세 가지가 가장 중요했습니다.  
   
-- `@Model`로 앱의 데이터를 명확히 정의하기  
-- `@Query`와 `ModelContext`로 CRUD 흐름 연결하기  
-- `NavigationSplitView`와 `sheet`를 조합해 목록과 편집 화면 분리하기 |
+- `@Model` 속성으로 친구와 영화의 관계를 연결하기  
+- `@Query`, `#Predicate`, `ModelContext`로 조회와 필터링, CRUD 흐름 연결하기  
+- `NavigationSplitView`, `sheet`, `ContentUnavailableView`를 조합해 상태별 화면 구성하기 |
+
+<h2>업데이트로 추가된 내용</h2>
+
+이번 수정으로 이 프로젝트는 단순한 친구 목록/영화 목록 예제를 넘어, 관계형 데이터와 검색 가능한 리스트를 함께 다루는 구조로 발전했습니다. 특히 친구가 좋아하는 영화를 선택하면 영화 상세 화면에서 해당 친구를 다시 확인할 수 있게 되면서, `SwiftData`의 관계 추적이 실제 UI에 어떻게 반영되는지 더 분명하게 드러납니다.  
+  
+또한 영화 탭이 `FilteredMovieList`를 통해 검색 가능한 구조로 바뀌었고, 친구/영화 목록 모두 빈 상태 Preview와 `ContentUnavailableView`를 추가해 데이터가 없는 경우의 화면까지 함께 점검할 수 있게 되었습니다.
 
 <h2>개선해볼 수 있는 점</h2>
 
-- 친구와 영화 사이의 즐겨찾기 관계 추가  
 - 빈 제목이나 빈 이름 저장 방지  
-- 개봉일 정렬, 검색 기능 추가  
+- 친구 목록에서도 이름 검색 기능 추가  
 - 삭제 전 확인 다이얼로그 추가  
-- 테스트 코드로 CRUD 동작 검증 확장 |
+- 테스트 코드로 CRUD 동작 검증 확장
 
 <h2>한 줄 회고</h2>
 
-이 프로젝트는 작은 데이터 관리 앱이지만, `SwiftData`와 `SwiftUI`를 함께 사용하면서 모델 설계, 데이터 조회, 폼 편집, 시트 기반 생성 흐름까지 한 번에 연습할 수 있는 좋은 예제였습니다.
+이 프로젝트는 작은 데이터 관리 앱이지만, `SwiftData`와 `SwiftUI`를 함께 사용하면서 모델 설계, 관계 연결, 검색 필터링, 폼 편집, 시트 기반 생성 흐름까지 한 번에 연습할 수 있는 좋은 예제였습니다.
 
 <h2>스크린샷</h2>
 
-| | | |
-|---|---|---|
-| ![](ScreenShot/FriendsFavoriteMovies1.png) | ![](ScreenShot/FriendsFavoriteMovies2.png) | ![](ScreenShot/FriendsFavoriteMovies3.png) |
+| | | | | |
+|---|---|---|---|---|
+| ![](ScreenShot/FriendsFavoriteMovies1.png) | ![](ScreenShot/FriendsFavoriteMovies2.png) | ![](ScreenShot/FriendsFavoriteMovies3.png) | ![](ScreenShot/FriendsFavoriteMovies4.png) | ![](ScreenShot/FriendsFavoriteMovies5.png) |
