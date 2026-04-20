@@ -164,7 +164,7 @@
 <h2>스크린샷</h2>
 
 | | | |
-|---|---|---|
+| (1) |---|---|
 | ![](ScreenShot/GratefulMoments1.png) | ![](ScreenShot/GratefulMoments2.png) | ![](ScreenShot/GratefulMoments3.png) |
-|---|---|---|
+| (2) | | |
 | ![](ScreenShot/GratefulMoments4.png) | ![](ScreenShot/GratefulMoments5.png) | ![](ScreenShot/GratefulMoments6.png) |
